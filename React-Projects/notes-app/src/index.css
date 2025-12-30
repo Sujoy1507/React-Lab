@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+textarea {
+  resize: none;
+  overflow-y: scroll;
+  scrollbar-width: none;       
+}
+
+textarea::-webkit-scrollbar {
+  display: none;               
+}
