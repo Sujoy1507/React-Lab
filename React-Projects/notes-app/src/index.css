@@ -9,3 +9,7 @@ textarea {
 textarea::-webkit-scrollbar {
   display: none;               
 }
+
+#notes-container::-webkit-scrollbar {
+  display: none;               
+}
