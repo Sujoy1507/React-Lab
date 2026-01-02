@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Nav from "./components/HeroSectionOne/Nav";
+import CardContainer from "./components/HeroSectionOne/CardContainer";
 
 const App = () => {
-    const [limit, setLimit] = useState(100);
-    const [offset, setOffset] = useState(20);
+    const [limit, setLimit] = useState(10);
+    const [offset, setOffset] = useState(0);
 
     const [allPokemon, setAllPokemon] = useState([]);
 
@@ -13,13 +14,16 @@ const App = () => {
             `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
         );
 
-        console.log(data.results[0].url);
+        const pokemonData = data.results;
 
-        let pokeURL = data.results[0].url;
-        const pokemonData = await axios.get(pokeURL);
+        const allSinglePokemon = pokemonData.map((val) => val.url);
+        const allSinglePokemonData = await Promise.all(
+            allSinglePokemon.map((url) => axios.get(url))
+        );
 
-        console.log(pokemonData.data);
-        setAllPokemon(data.results);
+        const finalData = allSinglePokemonData.map((val) => val.data);
+
+        setAllPokemon((prev) => [...prev, ...finalData]);
     };
 
     useEffect(() => {
@@ -28,7 +32,8 @@ const App = () => {
 
     return (
         <div>
-            <Nav/>
+            <Nav />
+            <CardContainer  allPokemon={allPokemon}/>
         </div>
     );
 };
