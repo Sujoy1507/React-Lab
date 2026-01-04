@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 import axios from "axios";
 
 const App = () => {
-    const [limit, setLimit] = useState(12);
+    const [limit, setLimit] = useState(6);
     const [offset, setOffset] = useState(0);
 
     const [allPokemon, setAllPokemon] = useState([]);
@@ -28,10 +28,16 @@ const App = () => {
         console.log(allpoke);
 
         // Set UseState for allPokemon Array
-        setAllPokemon(prev=>[...prev,...allpoke])
-        console.log(allPokemon)
+        // setAllPokemon((prev) => [...prev, ...allpoke]);
+        setAllPokemon(allpoke);
     };
 
+    const nextSixBtn = () => {
+        setOffset((prev) => prev + limit);
+    };
+    const prevSixBtn = () => {
+        setOffset((prev) => Math.max(0, prev - limit));
+    };
     useEffect(() => {
         getAPI();
     }, [limit, offset]);
@@ -41,7 +47,7 @@ const App = () => {
             <div className="sticky top-0 z-50">
                 <Nav />
             </div>
-            <Home val={allPokemon} />
+            <Home val={allPokemon} next={nextSixBtn} prev={prevSixBtn} />
         </div>
     );
 };

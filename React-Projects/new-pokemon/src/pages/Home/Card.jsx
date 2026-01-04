@@ -41,7 +41,7 @@ const Card = (props) => {
     const gradient = typeGradient[mainType];
 
     return (
-        <div className={`h-72 rounded p-3 flex flex-col gap-4 ${gradient} `}>
+        <div className={`h-[265px] rounded p-3 flex flex-col gap-4 ${gradient} `}>
             <CardIMG img={props.img} />
             <Name name={props.name} type={props.type} />
         </div>
