@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+h1{
+    font-size: 75px;
+    color: crimson;
+    font-weight: 900;
+    
+}
+
+h2{
+    font-size: 75px;
+    color: lightseagreen;
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+}

@@ -4,7 +4,7 @@ import Nav from "./components/HeroSectionOne/Nav";
 import CardContainer from "./components/HeroSectionOne/CardContainer";
 
 const App = () => {
-    const [limit, setLimit] = useState(10);
+    const [limit, setLimit] = useState(4);
     const [offset, setOffset] = useState(0);
 
     const [allPokemon, setAllPokemon] = useState([]);

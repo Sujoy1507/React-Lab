@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+h1{
+    font-size: 6rem;
+    font-weight: 900;
+    color: crimson;
+}
