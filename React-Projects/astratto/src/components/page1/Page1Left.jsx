@@ -17,6 +17,7 @@ const Page1Left = () => {
                         </clipPath>
                     </defs>
                 </svg>
+                console.log('Sujoy Saha ')
                 {/* Clipped shape */}
                 <div
                     className="w-72 h-96 rotate-170 rounded-xl overflow-hidden "
