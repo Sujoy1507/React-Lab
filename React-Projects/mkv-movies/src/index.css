@@ -3,3 +3,7 @@
 #moviepage::-webkit-scrollbar {
     display: none;
 }
+
+#movieDetails::-webkit-scrollbar {
+    display: none;
+}

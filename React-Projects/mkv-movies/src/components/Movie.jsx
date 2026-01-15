@@ -14,7 +14,7 @@ const Movie = () => {
             {allMovies.map((movie, index) => {
                 return (
                     <div key={index}>
-                        <SingleMovie title = {movie.title} poster = {movie.poster_path} />
+                        <SingleMovie title = {movie.title} poster = {movie.poster_path} id = {movie.id} />
                     </div>
                 );
             })}

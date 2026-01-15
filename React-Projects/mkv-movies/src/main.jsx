@@ -10,9 +10,7 @@ createRoot(document.getElementById("root")).render(
     <SearchMovieContext>
         <AllMoviesContext>
             <BrowserRouter>
-                <StrictMode>
-                    <App />
-                </StrictMode>
+                <App />
             </BrowserRouter>
         </AllMoviesContext>
     </SearchMovieContext>
