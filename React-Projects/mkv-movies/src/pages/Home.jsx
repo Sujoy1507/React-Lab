@@ -1,11 +1,12 @@
+import { useContext } from "react";
 import Movie from "../components/Movie";
+import { SearchMovieContextData } from "../context/SearchMovieContext";
+import SearchMovies from "../components/search/SearchMovies";
 
 const Home = () => {
-  return (
-    <div>
-       <Movie/>
-    </div>
-  );
+    const { movieName } = useContext(SearchMovieContextData);
+
+    return <div>{!movieName ? <Movie /> : <SearchMovies />}</div>;
 };
 
 export default Home;

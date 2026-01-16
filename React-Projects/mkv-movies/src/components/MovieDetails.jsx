@@ -5,15 +5,20 @@ import MovieGenere from "./MovieGenere";
 import MovieFavorite from "./MovieFavorite";
 import MovieInfo from "./MovieInfo";
 import MovieOverview from "./MovieOverview";
+import { SearchMovieContextData } from "../context/SearchMovieContext";
 
 const MovieDetails = () => {
     const imgPath = `https://image.tmdb.org/t/p/w500`;
-
+    //
     const { id } = useParams();
-
+    const { searchMovies } = useContext(SearchMovieContextData);
     const allMovie = useContext(AllMoviesDataContext);
-    const movie = allMovie.find((movie) => movie.id === Number(id));
-    console.log(movie);
+    let movie;
+
+    if (allMovie.find((movie) => movie.id === Number(id)))
+        movie = allMovie.find((movie) => movie.id === Number(id));
+    else movie = searchMovies.find((movie) => movie.id === Number(id));
+
     if (!movie) {
         return (
             <div className="w-full h-[calc(100vh-140px)]  bg-slate-900 text-pink-500 font-bold flex justify-center items-center text-6xl">
@@ -40,7 +45,10 @@ const MovieDetails = () => {
                     </h2>
                 </div>
 
-                <div id="movieDetails" className="w-1/3 h-full flex overflow-y-scroll flex-col gap-5 justify-evenly">
+                <div
+                    id="movieDetails"
+                    className="w-1/3 h-full flex overflow-y-scroll flex-col gap-5 justify-evenly"
+                >
                     <MovieOverview
                         title={movie.title}
                         overview={movie.overview}

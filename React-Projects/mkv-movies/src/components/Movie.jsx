@@ -4,8 +4,6 @@ import { AllMoviesDataContext } from "../context/AllMoviesContext";
 
 const Movie = () => {
     const allMovies = useContext(AllMoviesDataContext);
-
-    console.log(allMovies[0]);
     return (
         <div
             id="moviepage"
